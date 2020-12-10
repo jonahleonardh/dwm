@@ -180,7 +180,7 @@ recalculatenumbers()
 {
 	unsigned int numer = 0, denom = 0;
 	struct item *item;
-	if (matched) {
+	if (matchend) {
 		numer++;
 		for (item = matchend; item && item->left; item = item->left)
 			numer++;
