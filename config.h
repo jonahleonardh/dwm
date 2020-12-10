@@ -82,16 +82,16 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *firefox[] = { "firefox", NULL };
 static const char *ranger[] = { "st", "/home/jonah/scripts/rangerstart.sh", NULL };
 static const char *steam[] = { "steam", NULL };
-static const char *jstestgtk[] = { "jstest-gtk", NULL };
+static const char *surf[] = { "surf", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,			XK_x,      spawn,	   {.v = firefox } },
+	{ MODKEY|ShiftMask,		XK_x,      spawn,	   {.v = firefox } },
 	{ MODKEY|ShiftMask,		XK_Return, spawn,	   {.v = ranger } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_s,      spawn,	   {.v = steam } },
-	{ MODKEY|ShiftMask,		XK_j,      spawn,	   {.v = jstestgtk } },	
+	{ MODKEY,			XK_x,	   spawn,	   {.v = surf } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
