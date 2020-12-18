@@ -83,6 +83,10 @@ static const char *firefox[] = { "firefox", NULL };
 static const char *ranger[] = { "st", "/home/jonah/scripts/rangerstart.sh", NULL };
 static const char *steam[] = { "steam", NULL };
 static const char *surf[] = { "surf", NULL };
+/* volume controls */
+static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -92,6 +96,9 @@ static Key keys[] = {
 	{ MODKEY,	                XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_s,      spawn,	   {.v = steam } },
 	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   {.v = surf } },
+	{ MODKEY|ShiftMask,		XK_equal,  spawn,	   {.v = upvol } },
+	{ MODKEY|ShiftMask,		XK_minus,  spawn,	   {.v = downvol } },
+	{ MODKEY|ShiftMask,		XK_m,      spawn,	   {.v = mutevol } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -114,7 +121,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,			XK_minus,  setgaps,	   {.i = -1 } },
 	{ MODKEY,			XK_equal,  setgaps,	   {.i = +1 } },
-	{ MODKEY|ShiftMask,		XK_equal,  setgaps,	   {.i = 0  } },
+	{ MODKEY,			XK_0,      setgaps,	   {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
